@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<table ver="2">
+  <cid>a86e479eaed9a94b861e071f6ed929f9</cid>
+  <key>dbatytstudent</key>
+  <tableName>t_student</tableName>
+  <showName>学生</showName>
+  <desc />
+  <submitName>student</submitName>
+  <fields>
+    <field id="776ba7cd3d1f5e1d4935ee391b44c72f" fieldName="c_id" fieldType="text" dbmsType="varchar" pk="true" defaultValue="" unique="true">
+      <extend label="ID" submitName="id" required="true" maxLength="32" editor="input" />
+    </field>
+    <field id="da3df777d34187b0b8e04344579237f6" fieldName="c_name" fieldType="text" dbmsType="varchar" pk="false" defaultValue="" unique="false">
+      <extend label="姓名" submitName="name" required="true" maxLength="50" editor="input" />
+    </field>
+    <field id="b851410733d2e0bc781981f8e6ab330d" fieldName="n_age" fieldType="number" dbmsType="int" pk="false" defaultValue="" unique="false">
+      <extend label="年龄" submitName="age" required="false" valueUnit="无" maxPrecision="0" />
+    </field>
+    <field id="4885ecb0734de925fbe22f54f9e442bd" fieldName="d_birthday" fieldType="date" dbmsType="timestamp" pk="false" defaultValue="" unique="false">
+      <extend label="生日" submitName="birthday" required="false" showTime="true" customFormat="YYYY-MM-DD" />
+    </field>
+    <field id="8d3d59868954468232e774e59848e158" fieldName="c_desc" fieldType="text" dbmsType="varchar" pk="false" defaultValue="" unique="false">
+      <extend label="自我描述" submitName="desc" required="false" maxLength="500" editor="input" />
+    </field>
+  </fields>
+</table>
+

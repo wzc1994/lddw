@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>com.wutong</groupId>
+	<artifactId>lddw</artifactId>
+	<version>1.0.0</version>
+	<packaging>jar</packaging>
+
+	<name>lddw</name>
+	<description>乐斗代玩</description>
+
+	<properties>
+		<maven.compiler.source>${java.version}</maven.compiler.source>
+		<maven.compiler.target>${java.version}</maven.compiler.target>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+		<project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+		<java.version>1.8</java.version>
+	</properties>
+
+	<dependencies>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-devtools</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.thunisoft.artery</groupId>
+			<artifactId>artery-code-starter</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.thunisoft.artery</groupId>
+			<artifactId>artery-login-starter</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.thunisoft.artery</groupId>
+			<artifactId>artery-organ-starter</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.thunisoft.artery</groupId>
+			<artifactId>artery-starter</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.thunisoft.arterybase</groupId>
+			<artifactId>ArteryBase</artifactId>
+		</dependency>
+
+		<!-- log4jdbc -->
+		<dependency>
+			<groupId>com.thunisoft</groupId>
+			<artifactId>thunisoft-log4jdbc-log4j2</artifactId>
+			<version>1.17.1-SNAPSHOT</version>
+		</dependency>
+		<dependency>
+			<groupId>com.thunisoft</groupId>
+			<artifactId>thunisoft-logback</artifactId>
+			<version>1.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
+			<scope>test</scope>
+		</dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
+		<!-- apache httpclient组件 -->
+		<dependency>
+			<groupId>org.apache.httpcomponents</groupId>
+			<artifactId>httpclient</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.72</version>
+		</dependency>
+	</dependencies>
+	<dependencyManagement>
+		<dependencies>
+			<dependency>
+				<groupId>com.thunisoft.artery</groupId>
+				<artifactId>artery-parent</artifactId>
+				<version>6.1.1</version>
+				<type>pom</type>
+				<scope>import</scope>
+			</dependency>
+		</dependencies>
+	</dependencyManagement>
+	<build>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<version>2.1.6.RELEASE</version>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal>
+						</goals>
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+</project>

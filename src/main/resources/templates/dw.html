@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns:aty="http://www.thunisoft.com">
+<head>
+  <meta type="aty-meta" name="javaLocation" content="com.wutong.lddw.controller.DwController.java"
+        th:remove="all">
+  <meta type="aty-meta" name="cssLocation" content="css/index.css" th:remove="all">
+  <meta type="aty-meta" name="jsLocation" content="js/dw.js" th:remove="all">
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
+  <link rel="icon" type="image/x-icon" href="images/wutongshuye.png" />
+  <link rel="stylesheet" th:href="@{/webjars/artery/artery-ui.css}"/>
+  <link rel="stylesheet" href="https://unpkg.com/element-ui/lib/theme-chalk/index.css">
+  <link rel="stylesheet" aty:import>
+  <link rel="stylesheet" th:href="@{/css/dw.css}"/>
+  <title>梧、桐·จุ๊บ</title>
+  <base th:href="@{/}"/>
+</head>
+<body>
+<div id="app" style="height:100%;width:100%" v-cloak>
+  <el-header>
+    <span>
+      <el-image class="wutongshu-image" src="images/wutongshu.png"></el-image>
+      欢迎使用梧、桐·จุ๊บ代玩
+      <el-image class="wutongshuye-image" src="images/wutongshuye.png"></el-image>
+    </span>
+    <i class="el-icon-setting"></i>
+  </el-header>
+  <el-main>
+    <div v-loading="loading"
+         :element-loading-text="loadingText"
+         element-loading-spinner="el-icon-loading"
+         element-loading-background="rgba(0, 0, 0, 0.5)">
+      <el-card class="box-card">
+        <div slot="header">
+          <span>请求体</span>
+          <el-button style="float: right; padding: 3px 0" type="text" @click="oneKeyClick">一键代玩</el-button>
+        </div>
+        <el-input type="textarea" :rows="4" v-model="requestBody" placeholder="请将抓包工具中的请求体复制到输入框中，必须要包含uid,h5token,h5openid信息......"></el-input>
+      </el-card>
+      <el-divider></el-divider>
+      <el-tabs type="card" value="second">
+        <el-tab-pane label="自选代玩" name="first">
+          <el-card class="module-box-card">
+            <div slot="header">
+              <span>自选代玩</span>
+            </div>
+            <el-collapse accordion>
+              <el-collapse-item name="1">
+                <template slot="title">
+                  <span class="collapse-item-header-title">领奖</span>
+                  <span class="collapse-item-header-desc">包括猜一猜、音乐大师...</span>
+                </template>
+                <aty-row>
+                  <el-button type="primary" size="small">猜一猜</el-button>
+                </aty-row>
+              </el-collapse-item>
+              <el-collapse-item name="2">
+                <template slot="title">
+                  <span class="collapse-item-header-title">斗友</span>
+                  <span class="collapse-item-header-desc">待开发...</span>
+                </template>
+              </el-collapse-item>
+              <el-collapse-item name="3">
+                <template slot="title">
+                  <span class="collapse-item-header-title">帮派</span>
+                  <span class="collapse-item-header-desc">待开发...</span>
+                </template>
+              </el-collapse-item>
+              <el-collapse-item name="4">
+                <template slot="title">
+                  <span class="collapse-item-header-title">游历</span>
+                  <span class="collapse-item-header-desc">待开发...</span>
+                </template>
+              </el-collapse-item>
+              <el-collapse-item name="5">
+                <template slot="title">
+                  <span class="collapse-item-header-title">剑阁</span>
+                  <span class="collapse-item-header-desc">待开发...</span>
+                </template>
+              </el-collapse-item>
+            </el-collapse>
+          </el-card>
+          <el-divider></el-divider>
+          <el-card class="box-card">
+            <div slot="header">
+              <span>日志输出</span>
+            </div>
+            <el-card class="log-box-card" :key="i" v-for="(moduleLog, i) in moduleLogs">
+              <div slot="header">
+                <span>{{moduleLog.moduleName}}</span>
+              </div>
+              <div :key="j" v-for="(log, j) in moduleLog.logs">{{log}}</div>
+            </el-card>
+          </el-card>
+        </el-tab-pane>
+        <el-tab-pane label="镖车监控" name="second">
+          <el-card class="module-box-card">
+            <div slot="header">
+              <span>镖车监控</span>
+            </div>
+            <el-button type="primary" plain :loading="bcLoading" @click="startMonitor">{{bcButtonText}}</el-button>
+            <el-button v-if="!bcLoading" icon="el-icon-refresh" circle @click="refreshBcList"></el-button>
+            <span class="bc-error-info">{{bcErrorInfo}}</span>
+            <el-table :data="userBcInfos">
+              <el-table-column type="index" label="#"></el-table-column>
+              <el-table-column prop="uid" label="编号" width="180"></el-table-column>
+              <el-table-column prop="name" label="名称" width="180"></el-table-column>
+              <el-table-column prop="fight_power" label="战力"></el-table-column>
+              <el-table-column prop="trans" label="押镖情况">
+                <template slot-scope="scope">
+                  <div :key="index" v-for="(tran, index) in scope.row.trans">
+                    <span :class="getTypeClass(tran.type)">{{tranlateType(tran.type)}}</span>
+                    <span :class="getQualityClass(tran.quality)">{{tranlateQuality(tran.quality)}}</span>
+                    <span class="bc-tran-item date">{{formatDate(tran.begin_time)}}</span>
+                  </div>
+                </template>
+              </el-table-column>
+            </el-table>
+          </el-card>
+        </el-tab-pane>
+      </el-tabs>
+    </div>
+  </el-main>
+</div>
+</body>
+<script type="text/javascript" th:src="@{/webjars/vue/vue.min.js}"></script>
+<script type="text/javascript" th:src="@{/webjars/artery/artery-ui.min.js}"></script>
+<script src="https://unpkg.com/element-ui/lib/index.js"></script>
+<script type="text/javascript" aty:import></script>
+<script type="text/javascript" th:src="@{/js/moduleInfo.js}"></script>
+<script type="text/javascript" th:src="@{/js/dw.js}"></script>
+</html>

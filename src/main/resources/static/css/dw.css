@@ -1,0 +1,188 @@
+/*********************************************
+ * index CSS
+ *
+ * @author Administrator
+ * @date 2020-03-08
+ *********************************************/
+.fd-top {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+}
+
+.fd-bottom {
+    display: flex;
+    line-height: 40px;
+    overflow-y: hidden;
+    justify-content: center;
+    align-items: center;
+}
+
+.fd-left, .fd-right {
+    width: 150px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.fd-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 180px;
+    font-weight: bold;
+    font-family: Georgia;
+}
+
+.wutongshu-image{
+    width: 33px;
+    height: 37px;
+}
+
+.wutongshu-image .el-image__inner{
+    margin-top: 3px;
+}
+
+.wutongshuye-image{
+    width: 33px;
+    height: 33px;
+}
+
+.wutongshuye-image .el-image__inner{
+    margin-top: 3px;
+}
+
+.el-icon-grape{
+    margin-left: 10px;
+    color: #9d00ff;
+}
+
+.el-header,.el-button,.el-collapse-item__header{
+    font-size: 20px;
+}
+
+.el-header {
+    background-color: #a5cef9;
+    color: #333;
+    line-height: 110px;
+    height: 110px!important;
+    font-size: 40px;
+}
+
+.el-icon-setting{
+    font-size: 40px;
+    position: absolute;
+    right: 30px;
+    top: 33px;
+    color: #f56c6c;
+}
+
+.el-textarea{
+    font-size: 20px;
+}
+
+.el-button{
+    font-size: 20px;
+}
+
+.el-button--small{
+    font-size: 16px;
+}
+
+.aty-row{
+    margin-top: 5px;
+}
+
+.fd-panel{
+    margin-top: 10px;
+    text-align: center;
+}
+
+.el-collapse{
+    border-top: none;
+}
+
+.el-collapse-item__header{
+    height: 55px;
+    line-height: 55px;
+    background: #ffe9c7;
+    border-radius: 10px;
+    padding-left: 19px;
+    margin-bottom: 10px;
+}
+
+.collapse-item-header-desc{
+    font-size: 14px;
+    margin-left: 30px;
+    color: #606266;
+}
+
+.el-card__header{
+    font-size: 24px;
+    background-color: rgba(51, 153, 255, 0.2);
+    padding: 10px 20px;
+}
+
+.el-card__body .el-collapse-item > div:last-child{
+    background: rgb(245, 247, 250);
+    margin-top: -10px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    padding: 0px 10px;
+    box-shadow: rgb(187, 190, 196) 1px 3px;
+}
+
+.log-box-card{
+    margin-bottom: 10px;
+}
+
+.log-box-card .el-card__header{
+    font-size: 16px;
+    padding: 5px 10px;
+}
+
+.log-box-card .el-card__body{
+    padding: 10px 20px;
+}
+
+.bc-error-info{
+    font-size: 18px;
+    margin-left: 15px;
+    color: red;
+}
+
+.bc-tran-item{
+    border: 1px solid;
+    border-radius: 7px;
+    padding: 2px;
+    color: #f5f7fa;
+}
+.bc-tran-item.mucai{
+    background-color: #67c23a;
+}
+.bc-tran-item.shitou{
+    background-color: #bbbec4;
+}
+.bc-tran-item.tiekuang{
+    background-color: #606266;
+}
+.bc-tran-item.date{
+    background-color: #5cadff;
+}
+.bc-tran-item.bai{
+    background-color: white;
+    color: #67c23a;
+}
+.bc-tran-item.lv{
+    background-color: green;
+}
+.bc-tran-item.lan{
+    background-color: blue;
+}
+.bc-tran-item.zi{
+    background-color: purple;
+}
+.bc-tran-item.hong{
+    background-color: red;
+}

@@ -1,0 +1,10 @@
+spring:
+  profiles:
+    active: dev
+  jackson:
+    date-format: yyyy-MM-dd HH:mm:ss
+    time-zone: GMT+8 #日期序列化走北京时间
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource
+bc:
+  admins: 732287;7620138
