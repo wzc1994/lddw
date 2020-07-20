@@ -10,3 +10,5 @@ spring:
 artery:
   login:
     enabled: false
+server:
+  port: 9999
